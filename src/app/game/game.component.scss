@@ -12,10 +12,12 @@
     position: relative;
     img {
         position: absolute;
+        width: 80px;
     }
 }
 
 .top-card {
+    width: 80px;
     cursor: pointer;
     transition: all 125ms ease-in-out;
 
@@ -25,8 +27,9 @@
 }
 
 .pick-card {
+    width: 80px;
     animation: pick-card-animation 0.75s ease-in-out;
-    transform: scale(1) translateX(140px) translateY(-150px) rotate(-10deg);
+    transform: scale(1) translateX(140px) translateY(-150px) rotate(-10deg); //final state of pick-card-animation
 }
 
 @keyframes pick-card-animation {
