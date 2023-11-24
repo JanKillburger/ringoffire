@@ -62,3 +62,11 @@ $played-card-position: scale(1) translateX(140px) translateY(-150px) rotate(-10d
     right: 64px;
     bottom: 64px;
 }
+
+.game-instruction {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 32px;
+    width: 300px;
+}
