@@ -10,15 +10,16 @@ export class GameComponent {
 
   pickCardAnimation: boolean = false;
   game: Game = new Game();
-  currentCard: string | undefined = '';
+  currentCard: string = '';
 
   takeCard() {
     if (!this.pickCardAnimation) {
-      this.currentCard = this.game.stack.pop();
+      this.currentCard = this.game.stack.pop()!;
       this.pickCardAnimation = true;
       setTimeout(() => {
+        this.game.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
-      }, 1500);
+      }, 750);
     }
   }
 }

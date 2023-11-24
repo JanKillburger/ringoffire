@@ -1,3 +1,5 @@
+$played-card-position: scale(1) translateX(140px) translateY(-150px) rotate(-10deg);
+
 .game-table {
     width: 100vw;
     max-width: 100%;
@@ -10,10 +12,16 @@
 
 .card-stack {
     position: relative;
+
     img {
         position: absolute;
         width: 80px;
     }
+}
+
+.played-card {
+    right: 25px;
+    transform: $played-card-position;
 }
 
 .top-card {
@@ -29,7 +37,7 @@
 .pick-card {
     width: 80px;
     animation: pick-card-animation 0.75s ease-in-out;
-    transform: scale(1) translateX(140px) translateY(-150px) rotate(-10deg); //final state of pick-card-animation
+    transform: $played-card-position;
 }
 
 @keyframes pick-card-animation {
@@ -40,6 +48,6 @@
         transform: scale(1.2);
     }
     100% {
-        transform: scale(1) translateX(140px) translateY(-150px) rotate(-10deg);
+        transform: $played-card-position;
     }
 }
