@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-game-instruction',
   templateUrl: './game-instruction.component.html',
   styleUrl: './game-instruction.component.scss'
 })
-export class GameInstructionComponent {
+export class GameInstructionComponent implements OnChanges {
   cardActions = [
     { title: 'Waterfall', description: 'Starting with the player who drew the card, every player has to continually drink their drink. You can only stop when the person to their right has stopped drinking.' },
     { title: 'You', description: 'the player who drew the card picks someone to drink.' },
@@ -21,7 +21,15 @@ export class GameInstructionComponent {
     { title: 'Queen', description: 'Question master. You become the question master, and if anybody answers a question asked by you (the player who drew the card), they have to drink. This applies to ANY question.' },
     { title: 'King', description: 'the player who drew the card must pour some of their drink into the cup in the middle. The person to draw the last King has to drink whatever is in the cup in the middle.' }
   ];
-  currentTitle = '';
-  currentDescription = '';
+  currentTitle = 'Please pick a card';
+  currentDescription = 'Click on the card stack to select the next card.';
   @Input() card: string = '';
+
+  ngOnChanges(): void {
+    if (this.card != '') {
+      const index: number = +this.card.split('_').pop()! - 1;
+      this.currentTitle = this.cardActions[index]['title'];
+      this.currentDescription = this.cardActions[index]['description'];
+    }
+  }
 }
