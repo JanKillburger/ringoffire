@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "ringoffire",
-      "source": ".",
+      "public": "./dist/ringoffire/browser",
       "frameworksBackend": {}
     }
   ]
